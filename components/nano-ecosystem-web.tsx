@@ -61,7 +61,7 @@ export default function NanoEcosystemWeb() {
 
   const handleWheel = useCallback((e: WheelEvent) => {
     e.preventDefault()
-    e.stopPropagation() 
+    e.stopPropagation()
     const delta = -e.deltaY
     if (delta > 0) handleZoomIn()
     else handleZoomOut()
@@ -112,19 +112,19 @@ export default function NanoEcosystemWeb() {
   }, [])
 
   useEffect(() => {
-    const svg = svgRef.current 
-    if (!svg) return
+    const container = containerRef.current // Attach to container instead of SVG
+    if (!container) return
 
-    svg.addEventListener("wheel", handleWheel, { passive: false })
-    svg.addEventListener("touchstart", handleTouchStart, { passive: false })
-    svg.addEventListener("touchmove", handleTouchMove, { passive: false })
-    svg.addEventListener("touchend", handleTouchEnd, { passive: false })
+    container.addEventListener("wheel", handleWheel, { passive: false })
+    container.addEventListener("touchstart", handleTouchStart, { passive: false })
+    container.addEventListener("touchmove", handleTouchMove, { passive: false })
+    container.addEventListener("touchend", handleTouchEnd, { passive: false })
 
     return () => {
-      svg.removeEventListener("wheel", handleWheel)
-      svg.removeEventListener("touchstart", handleTouchStart)
-      svg.removeEventListener("touchmove", handleTouchMove)
-      svg.removeEventListener("touchend", handleTouchEnd)
+      container.removeEventListener("wheel", handleWheel)
+      container.removeEventListener("touchstart", handleTouchStart)
+      container.removeEventListener("touchmove", handleTouchMove)
+      container.removeEventListener("touchend", handleTouchEnd)
     }
   }, [handleWheel, handleTouchStart, handleTouchMove, handleTouchEnd])
 
