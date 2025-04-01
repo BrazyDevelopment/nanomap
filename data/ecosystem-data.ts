@@ -143,7 +143,7 @@ const calculateNodePositions = (): EcosystemData => {
   const totalNodes = categories.reduce((sum, category) => {
     return sum + (getCategoryNodes(category.id)?.length || 0)
   }, 0)
-  const baseCategoryRadius = Math.max(0.8, 0.4 + totalNodes * 0.02)
+  const baseCategoryRadius = Math.max(1, 0.6 + totalNodes * 0.02)
 
   const categoryPositions = categories.map((category, index) => {
     const angleStep = (2 * Math.PI) / categories.length
