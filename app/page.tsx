@@ -27,7 +27,7 @@ export default function Home() {
           <GithubIcon className="hover:text-sky-600 w-5 h-5" />
           <p>
             Contribute{" "}
-            <a className="hover:text-sky-600 underline" href="https://github.com/BrazyDevelopment">Here</a>
+            <a className="hover:text-sky-600 underline" href="https://github.com/BrazyDevelopment/nanomap">Here</a>
           </p>
         </div>
       </footer>
