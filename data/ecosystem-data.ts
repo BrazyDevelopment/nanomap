@@ -51,6 +51,7 @@ const calculateNodePositions = (): EcosystemData => {
       case "community":
         return [
           { name: "SubNano", description: "Community blogging site", url: "https://subnano.me", logo: "/logos/subnano.png", shape: "circle" },
+          { name: "Nano Market", description: "Escrow-using marketplace", url: "https://market.nanoriver.io/", logo: "/logos/nanomarket.png", shape: "rectangle" },
           { name: "BrainBook", description: "Pay-to-Read with Nano", url: "https://www.brainbook.me/", logo: "/logos/brainbook.svg", shape: "circle" },
           { name: "The Nano Foundation", description: "Official foundation", url: "https://nano.org", logo: "/logos/nano.png", shape: "circle" },
           { name: "r/nanocurrency", description: "Reddit community", url: "https://reddit.com/r/nanocurrency", logo: "/logos/reddit.png", shape: "circle" },
