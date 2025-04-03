@@ -116,6 +116,7 @@ const calculateNodePositions = (): EcosystemData => {
           { name: "XNOPay Faucet", description: "Daily Nano rewards", url: "https://xnopay.com", logo: "/logos/xnopay.svg", shape: "rectangle" },
           { name: "Nanswap Faucet", description: "Daily Nano rewards", url: "https://nanswap.com/nano-faucet", logo: "/logos/nanswap-dark.svg", shape: "rectangle" },
           { name: "NanoFaucet", description: "Nano rewards every 45 minutes", url: "https://nano.lol.my.id/", logo: "/logos/nanofaucet.png", shape: "rectangle" },
+          { name: "Nanoriver Faucet", description: "Nano rewards every 20 minutes", url: "https://faucet.nanoriver.io", logo: "/logos/nanoriverfaucet.jpg", shape: "circle" },
         ]
       case "charity":
         return [
