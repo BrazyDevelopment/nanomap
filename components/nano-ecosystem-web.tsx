@@ -352,7 +352,7 @@ export default function NanoEcosystemWeb() {
               width={logoWidth}
               height={logoHeight}
               clipPath={`url(#clip-${node.id})`}
-              style={{ pointerEvents: "auto" }}
+              style={{ pointerEvents: "auto", zIndex: 1000 }}
             />
           </motion.g>
         </a>
