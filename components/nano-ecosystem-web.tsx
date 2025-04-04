@@ -13,7 +13,7 @@ export default function NanoEcosystemWeb() {
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null)
   const [hoveredNode, setHoveredNode] = useState<string | null>(null)
   const [dimensions, setDimensions] = useState({ width: 1000, height: 1000 })
-  const [zoom, setZoom] = useState(2)
+  const [zoom, setZoom] = useState(1)
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [isDragging, setIsDragging] = useState(false)
   const [initialPinchDistance, setInitialPinchDistance] = useState<number | null>(null)
@@ -45,9 +45,18 @@ export default function NanoEcosystemWeb() {
   const handleZoomOut = () => setZoom((prev) => Math.max(prev - 0.2, 0.5))
 
   const handleCategoryClick = (categoryId: string) => {
-    if (!isDragging) setHoveredCategory(categoryId)
+    if (isDragging) return
+    const categoryNode = ecosystemData.categoryNodes.find(cn => cn.categoryId === categoryId)
+    if (categoryNode && containerRef.current) {
+      const { width, height } = dimensions
+      const targetX = -(categoryNode.x * width - width / 2) * 0.6
+      const targetY = -(categoryNode.y * height - height / 2) * 0.8
+      setPosition({ x: targetX, y: targetY })
+      setZoom(1.5) // Zoom in to a reasonable level
+      setHoveredCategory(categoryId)
+    }
   }
-
+  
   const startDrag = (event: React.PointerEvent) => {
     dragControls.start(event)
     setIsDragging(true)
@@ -211,6 +220,7 @@ export default function NanoEcosystemWeb() {
         onMouseLeave={() => !isDragging && setHoveredCategory(null)}
         onClick={() => handleCategoryClick(category.id)}
         className="cursor-pointer"
+        style={{ zIndex: 70 }}
       >
         <motion.path
           d={generateCenterToCategoryPath(categoryNode)}
@@ -352,7 +362,7 @@ export default function NanoEcosystemWeb() {
               width={logoWidth}
               height={logoHeight}
               clipPath={`url(#clip-${node.id})`}
-              style={{ pointerEvents: "auto", zIndex: 1000 }}
+              style={{ pointerEvents: "auto", zIndex: 99 }}
             />
           </motion.g>
         </a>

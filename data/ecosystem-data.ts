@@ -143,7 +143,7 @@ const calculateNodePositions = (): EcosystemData => {
   const totalNodes = categories.reduce((sum, category) => {
     return sum + (getCategoryNodes(category.id)?.length || 0)
   }, 0)
-  const baseCategoryRadius = Math.max(1, 0.8 + totalNodes * 0.02)
+  const baseCategoryRadius = Math.max(1.2, 1 + totalNodes * 0.025) // Increased base radius for more spread
 
   const categoryPositions = categories.map((category, index) => {
     const angleStep = (2 * Math.PI) / categories.length
@@ -161,7 +161,7 @@ const calculateNodePositions = (): EcosystemData => {
   categories.forEach((category, categoryIndex) => {
     const categoryNodes = getCategoryNodes(category.id)
     const catNode = categoryPositions[categoryIndex]
-    const baseNodeRadius = 0.35 
+    const baseNodeRadius = 0.4 
     const angleStep = (2 * Math.PI) / Math.max(categoryNodes.length, 1)
     const radiusStep = categoryNodes.length > 5 ? 0.08 : 0.06 
     const maxRadius = baseNodeRadius + radiusStep * Math.ceil(categoryNodes.length / 3) 
@@ -169,8 +169,8 @@ const calculateNodePositions = (): EcosystemData => {
     categoryNodes.forEach((nodeData, nodeIndex) => {
       const angle = nodeIndex * angleStep
       const radius = baseNodeRadius + radiusStep * Math.floor(nodeIndex / 3) 
-      const jitterX = Math.random() * 0.02 - 0.01
-      const jitterY = Math.random() * 0.02 - 0.01
+      const jitterX = Math.random() * 0.05 - 0.025
+      const jitterY = Math.random() * 0.05 - 0.025
 
       const x = catNode.x + Math.min(radius, maxRadius) * Math.cos(angle) + jitterX
       const y = catNode.y + Math.min(radius, maxRadius) * Math.sin(angle) + jitterY
