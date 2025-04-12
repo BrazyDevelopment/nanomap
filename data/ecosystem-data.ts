@@ -32,13 +32,13 @@ const calculateNodePositions = (): EcosystemData => {
     switch (categoryId) {
       case "wallets":
         return [
-          { name: "Natrium", description: "Mobile wallet", url: "https://natrium.io", logo: "/logos/natrium.svg", shape: "rectangle" },
-          { name: "Nault", description: "Web/desktop wallet", url: "https://nault.cc", logo: "/logos/nault.svg", shape: "rectangle" },
-          { name: "WeNano", description: "Geo-based wallet", url: "https://wenano.net", logo: "/logos/wenano.png", shape: "circle" },
-          { name: "Nautilus", description: "Merchant wallet", url: "https://nautilus.io", logo: "/logos/nautilus.svg", shape: "rectangle" },
-          { name: "Cake Wallet", description: "Simple wallet", url: "https://cakewallet.com", logo: "/logos/cakewallet.png", shape: "rectangle" },
-          { name: "NOW Wallet", description: "Simple wallet", url: "https://walletnow.app/", logo: "/logos/nowwallet.svg", shape: "circle" },
-          { name: "Trust Wallet", description: "Simple wallet", url: "https://trustwallet.com/", logo: "/logos/trustwallet.svg", shape: "circle" },
+          { name: "Natrium", description: "Mobile Nano wallet", url: "https://natrium.io", logo: "/logos/natrium.svg", shape: "rectangle" },
+          { name: "Nault", description: "Web/desktop Nano wallet", url: "https://nault.cc", logo: "/logos/nault.svg", shape: "rectangle" },
+          { name: "WeNano", description: "Geo-based Nano wallet", url: "https://wenano.net", logo: "/logos/wenano.png", shape: "circle" },
+          { name: "Nautilus", description: "Mobile Nano wallet", url: "https://nautilus.io", logo: "/logos/nautilus.svg", shape: "rectangle" },
+          { name: "Cake Wallet", description: "Multi-currency wallet", url: "https://cakewallet.com", logo: "/logos/cakewallet.png", shape: "circle" },
+          { name: "NOW Wallet", description: "Multi-currency wallet", url: "https://walletnow.app/", logo: "/logos/nowwallet.svg", shape: "circle" },
+          { name: "Trust Wallet", description: "Multi-currency wallet", url: "https://trustwallet.com/", logo: "/logos/trustwallet.svg", shape: "circle" },
         ]
       case "infrastructure":
         return [
@@ -51,11 +51,11 @@ const calculateNodePositions = (): EcosystemData => {
       case "community":
         return [
           { name: "SubNano", description: "Community blogging site", url: "https://subnano.me", logo: "/logos/subnano.png", shape: "circle" },
-          { name: "Nano Market", description: "Escrow-using marketplace", url: "https://market.nanoriver.io/", logo: "/logos/nanomarket.png", shape: "circle" },
           { name: "BrainBook", description: "Pay-to-Read with Nano", url: "https://www.brainbook.me/", logo: "/logos/brainbook.svg", shape: "circle" },
           { name: "The Nano Foundation", description: "Official foundation", url: "https://nano.org", logo: "/logos/nano.png", shape: "circle" },
           { name: "r/nanocurrency", description: "Reddit community", url: "https://reddit.com/r/nanocurrency", logo: "/logos/reddit.png", shape: "circle" },
           { name: "Nano Discord", description: "Discord community", url: "https://chat.nano.org", logo: "/logos/discord.png", shape: "circle" },
+          { name: "Nano Market", description: "Escrow-using marketplace", url: "https://market.nanoriver.io/", logo: "/logos/nanomarket.png", shape: "circle" },
         ]
       case "payments":
         return [
@@ -71,6 +71,7 @@ const calculateNodePositions = (): EcosystemData => {
           { name: "Nano Bots", description: "Community made robot-based artwork.", url: "https://nano-bots.xyz", logo: "/logos/nanobots.png", shape: "circle" },
           { name: "Broccoli Bros", description: "Broccoli-based art collection", url: "https://broccolish.xyz/", logo: "/logos/broccolibros.png", shape: "circle" },
           { name: "Numb Dawgs", description: "Numb to the charts, wise to the tech. Can't teach an old dawg new tricks. Accumulate.", url: "https://nanswap.com/art/collection/numbdawgs", logo: "/logos/numbdawgs.png", shape: "circle" },
+          { name: "Nyano Cats", description: "Faster than lightning (network) cats!", url: "https://nyanocats.com/", logo: "/logos/nyanocats.png", shape: "circle" },
         ]
       case "gaming":
         return [
@@ -106,17 +107,17 @@ const calculateNodePositions = (): EcosystemData => {
           { name: "KuCoin", description: "Cryptocurrency exchange", url: "https://kucoin.com", logo: "/logos/kucoin-wide.svg", shape: "rectangle" },
           { name: "Gate.io", description: "Cryptocurrency exchange", url: "https://www.gate.io/", logo: "/logos/gateio.png", shape: "rectangle" },
           { name: "HTX", description: "Cryptocurrency exchange", url: "https://www.htx.com/", logo: "/logos/htx.png", shape: "circle" },
-          { name: "Nanswap", description: "Cryptocurrency exchange", url: "https://nanswap.com?r=Armour", logo: "/logos/nanswap-dark.svg", shape: "rectangle" },
+          { name: "Nanswap", description: "Non-KYC Cryptocurrency Swap", url: "https://nanswap.com?r=Armour", logo: "/logos/nanswap-dark.svg", shape: "rectangle" },
           // { name: "ChangeNOW", description: "Cryptocurrency exchange", url: "https://changenow.io/en", logo: "/logos/changenow.webp", shape: "circle" },
         ]
       case "faucets":
         return [
-          { name: "NanoDrop", description: "Free Nano distribution", url: "https://nanodrop.io", logo: "/logos/nanodrop.png", shape: "circle" },
+          { name: "NanoDrop", description: "Free Nano distribution", url: "https://nanodrop.io", logo: "/logos/nanodrop.png", shape: "rectangle" },
           { name: "WeNano Faucet", description: "Location-based faucet", url: "https://wenano.net", logo: "/logos/wenano.png", shape: "circle" },
           { name: "XNOPay Faucet", description: "Daily Nano rewards", url: "https://xnopay.com", logo: "/logos/xnopay.svg", shape: "rectangle" },
           { name: "Nanswap Faucet", description: "Daily Nano rewards", url: "https://nanswap.com/nano-faucet", logo: "/logos/nanswap-dark.svg", shape: "rectangle" },
           { name: "NanoFaucet", description: "Nano rewards every 45 minutes", url: "https://nano.lol.my.id/", logo: "/logos/nanofaucet.png", shape: "rectangle" },
-          { name: "Nanoriver Faucet", description: "Nano rewards every 20 minutes", url: "https://faucet.nanoriver.io", logo: "/logos/nanoriverfaucet.jpg", shape: "circle" },
+          { name: "Nanoriver Faucet", description: "Nano rewards every 20 minutes", url: "https://faucet.nanoriver.io", logo: "/logos/nanoriverfaucet.png", shape: "circle" },
         ]
       case "charity":
         return [
@@ -131,6 +132,15 @@ const calculateNodePositions = (): EcosystemData => {
           { name: "Nano Charts", description: "Community resources", url: "https://nanocharts.info", logo: "/logos/nanocharts.png", shape: "rectangle" },
           { name: "KarmaCall", description: "Get paid in Nano to block spam calls", url: "https://www.karmacall.com/", logo: "/logos/karmacall.webp", shape: "circle" },
           { name: "CoinGecko", description: "CoinGecko", url: "https://www.coingecko.com/en/coins/nano", logo: "/logos/coingecko.png", shape: "circle" },
+          { name: "CoinMarketCap", description: "CoinMarketCap", url: "https://coinmarketcap.com/currencies/nano/", logo: "/logos/coinmarketcap.png", shape: "circle" },
+          { name: "XNO Xperience", description: "Compare a transaction across different cryptocurrencies and payment processors.", url: "https://xnoxno.com/xperience/", logo: "/logos/xnoxno.png", shape: "rectangle" },
+          { name: "TipNano", description: "Android app that allows earning payouts in nano by performing tasks such as playing games", url: "https://play.google.com/store/apps/details?id=com.bdf.tipnano", logo: "/logos/tipnano.png", shape: "circle" },
+        ]
+      case "explorers":
+        return [
+          { name: "NanExplorer", description: "All-in-one Nano Ecosystem explorer", url: "https://nanexplorer.com", logo: "/logos/nanexplorer.png", shape: "rectangle" },
+          { name: "Nanobrowse", description: "Block explore by Gr0vity", url: "https://www.nanobrowse.com", logo: "/logos/karmacall.webp", shape: "circle" },
+          { name: "Nano Crawler", description: "CoinGecko", url: "https://www.coingecko.com/en/coins/nano", logo: "/logos/coingecko.png", shape: "circle" },
           { name: "CoinMarketCap", description: "CoinMarketCap", url: "https://coinmarketcap.com/currencies/nano/", logo: "/logos/coinmarketcap.png", shape: "circle" },
           { name: "XNO Xperience", description: "Compare a transaction across different cryptocurrencies and payment processors.", url: "https://xnoxno.com/xperience/", logo: "/logos/xnoxno.png", shape: "rectangle" },
           { name: "TipNano", description: "Android app that allows earning payouts in nano by performing tasks such as playing games", url: "https://play.google.com/store/apps/details?id=com.bdf.tipnano", logo: "/logos/tipnano.png", shape: "circle" },

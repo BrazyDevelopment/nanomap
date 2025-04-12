@@ -220,7 +220,6 @@ export default function NanoEcosystemWeb() {
         onMouseLeave={() => !isDragging && setHoveredCategory(null)}
         onClick={() => handleCategoryClick(category.id)}
         className="cursor-pointer"
-        style={{ zIndex: 70 }}
       >
         <motion.path
           d={generateCenterToCategoryPath(categoryNode)}
@@ -286,8 +285,8 @@ export default function NanoEcosystemWeb() {
     const nodeY = node.y * height
     const logoWidth = node.shape === "rectangle" ? (isMobile ? 120 : 156) : (isMobile ? 60 : 80)
     const logoHeight = node.shape === "rectangle" ? (isMobile ? 48 : 64) : (isMobile ? 60 : 80)
-    const isHovered = hoveredNode === node.id || hoveredCategory === category.id
-
+    const isHovered = hoveredNode === node.id
+  
     return (
       <g
         key={node.id}
@@ -369,6 +368,50 @@ export default function NanoEcosystemWeb() {
       </g>
     )
   })
+
+  // New tooltips rendering
+const tooltipElements = ecosystemData.nodes.map((node) => {
+  const category = ecosystemData.categories.find((c) => c.id === node.categoryId)
+  const categoryNode = ecosystemData.categoryNodes.find((cn) => cn.categoryId === node.categoryId)
+  if (!category || !categoryNode) return null
+
+  const nodeX = node.x * width
+  const nodeY = node.y * height
+  const logoWidth = node.shape === "rectangle" ? (isMobile ? 120 : 156) : (isMobile ? 60 : 80)
+  const logoHeight = node.shape === "rectangle" ? (isMobile ? 48 : 64) : (isMobile ? 60 : 80)
+  const isHovered = hoveredNode === node.id
+
+  return !isMobile && isHovered ? (
+    <foreignObject
+      key={`tooltip-${node.id}`}
+      x={nodeX - 150}
+      y={nodeY + (node.shape === "rectangle" ? logoHeight / 2 + 15 : logoWidth / 2 + 15)}
+      width={300}
+      height={120}
+      style={{ zIndex: 1000 }} // Increased for clarity, though SVG uses DOM order
+    >
+      <div
+        style={{
+          background: "rgba(0, 0, 0, 0.9)",
+          color: "white",
+          padding: "12px 16px",
+          borderRadius: "8px",
+          border: "1px solid #0066ff",
+          fontSize: "14px",
+          maxWidth: "300px",
+          boxShadow: "0 6px 12px rgba(0, 0, 0, 0.4)",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          whiteSpace: "normal",
+          wordWrap: "break-word",
+        }}
+      >
+        <strong style={{ fontSize: "16px" }}>{node.name}</strong>
+        <p style={{ marginTop: "6px", fontSize: "13px", opacity: 0.9 }}>{node.description}</p>
+      </div>
+    </foreignObject>
+  ) : null
+})
 
   return (
     <div className="w-full h-full flex flex-col bg-transparent text-white">
@@ -476,6 +519,10 @@ export default function NanoEcosystemWeb() {
                   animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }} 
                   transition={{ repeat: Infinity, duration: 3 }} 
                 />
+              </g>
+              {/* Render tooltips last to ensure they appear on top */}
+              <g className="tooltips" style={{ zIndex: 1000 }}>
+                {tooltipElements}
               </g>
             </svg>
           </motion.div>
