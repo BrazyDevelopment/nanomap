@@ -83,7 +83,7 @@ const calculateNodePositions = (): EcosystemData => {
       case "merchants":
         return [
           { name: "WeNano Spots", description: "WeNano is a new way to utilize and experience digital money.", url: "https://wenano.net", logo: "/logos/wenano.png", shape: "circle" },
-          { name: "Armour Hosting", description: "Secure, scalable web and server hosting.", url: "https://armour-hosting.com", logo: "/logos/armour.png", shape: "circle" },
+          { name: "Armour Solutions", description: "Expert Web Development at affordable rates.", url: "https://armour.dev", logo: "/logos/armour.png", shape: "circle" },
           { name: "Nano-GPT", description: "Pay-per-prompt AI Platform", url: "https://nano-gpt.com", logo: "/logos/nanogpt.png", shape: "circle" },
           { name: "NanShop", description: "Buy gift cards with Nano", url: "https://nanswap.com/shop", logo: "/logos/nanswap.png", shape: "circle" },
           { name: "Travala", description: "Book vacations using Nano", url: "https://travala.com", logo: "/logos/travala.png", shape: "circle" },
